@@ -3,9 +3,17 @@ let min = 0;
 let hour = 0;
 const startButton = document.getElementById('startB');
 
+function twoDigits(digit) {
+    if(digit < 10) {
+        return('0'+digit)
+    } else {
+        return(digit)
+    }
+}
 
 let interval
 function start() {
+    counter();
     //chamada da funçao counter a cada 1 segundo (1000 milissegundos)
    interval = setInterval(counter, 1000);
    startButton.disabled = true;
@@ -38,6 +46,6 @@ function counter() {
             min = 0;
         }
     }  
-    document.getElementById('timer').innerHTML= hour + ":" + min + ":" + sec;
+    document.getElementById('timer').innerHTML= twoDigits(hour) + ":" + twoDigits(min) + ":" + twoDigits(sec);
 }
 
